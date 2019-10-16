@@ -1,5 +1,88 @@
 # History
 
+## 2018-02-07, version 3.20.2
+
+- Upgraded to `typed-function@0.10.7` (bug-fix release).
+- Fixed option `implicit` not being copied from an `OperatorNode`
+  when applying function `map`. Thanks @HarraySarson.
+- Fixed #995: spaces and underscores not property being escaped
+  in `toTex()`. Thanks @FSMaxB.
+
+
+## 2018-01-17, version 3.20.1
+
+- Fixed #1018: `simplifyCore` failing in some cases with parentheses.
+  Thanks @firepick1.
+
+
+## 2018-01-14, version 3.20.0
+
+- Implement support for 3 or more arguments for operators `+` and `*` in
+  `derivative`. Thanks @HarrySarson. See #1002. 
+- Fixed `simplify` evalution of `simplify` of functions with more than two 
+  arguments wrongly: `simplify('f(x, y, z)') evaluated to `f(f(x, y), z)`
+  instead of `f(x, y, z)`. Thanks @joelhoover.
+- Fixed `simplify` throwing an error in some cases when simplifying unknown
+  functions, for example `simplify('f(4)')`. Thanks @joelhoover.
+- Fixed #1013: `simplify` wrongly simplifing some expressions containing unary
+  minus, like `0 - -x`. Thanks @joelhoover.
+- Fixed an error in an example in the documentation of `xor`. Thanks @denisx.
+
+
+## 2018-01-06, version 3.19.0
+
+- Extended functions `distance` and `intersect` with support for BigNumbers.
+  Thanks @ovk. 
+- Improvements in function `simplify`: added a rule that allows combining 
+  of like terms in embedded quantities. Thanks @joelhoover. 
+
+
+## 2017-12-28, version 3.18.1
+
+- Fixed #998: An issue with simplifying an expression containing a subtraction.
+  Thanks @firepick1.
+
+
+## 2017-12-16, version 3.18.0
+
+- Implemented function `rationalize`. Thanks @paulobuchsbaum.
+- Upgraded dependencies:
+  ```
+  decimal.js    7.2.3  →  9.0.1 (no breaking changes affecting mathjs) 
+  fraction.js   4.0.2  →  4.0.4 
+  tiny-emitter  2.0.0  →  2.0.2 
+  ```
+- Upgraded dev dependencies.
+- Fixed #975: a wrong example in the docs of lusolve.
+- Fixed #983: `pickRandom` returning an array instead of single value
+  when input was an array with just one value. Clarified docs.
+- Fixed #969: preven issues with yarn autoclean by renaming an
+  interally used folder "docs" to "embeddedDocs".
+
+
+## 2017-11-18, version 3.17.0
+
+- Improved `simplify` for nested exponentiations. Thanks @IvanVergiliev.
+- Fixed a security issue in `typed-function` allowing arbitrary code execution
+  in the JavaScript engine by creating a typed function with JavaScript code
+  in the name. Thanks Masato Kinugawa.
+- Fixed a security issue where forbidden properties like constructor could be
+  replaced by using unicode characters when creating an object. No known exploit,
+  but could possibly allow arbitrary code execution. Thanks Masato Kinugawa.
+
+
+## 2017-10-18, version 3.16.5
+
+- Fixed #954: Functions `add` and `multiply` not working when
+  passing three or more arrays or matrices.
+
+
+## 2017-10-01, version 3.16.4
+
+- Fixed #948, #949: function `simplify` returning wrong results or 
+  running into an infinite recursive loop. Thanks @ericman314.
+- Fixed many small issues in the embedded docs.  Thanks @Schnark.
+
 
 ## 2017-08-28, version 3.16.3
 
